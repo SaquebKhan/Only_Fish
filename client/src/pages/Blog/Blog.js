@@ -1,12 +1,27 @@
 import React from 'react';
+import { Form, Button, Container } from "react-bootstrap"
 
-export default function Blog() {
+const Blog = () => {
   return (
-    <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <h1>Fish Tales</h1>
-      <p>
-        Tell your tall fish tales!
-      </p>
+    <div>
+      <Container>
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Title</Form.Label>
+          <Form.Control type="Text" placeholder="Title" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Body</Form.Label>
+          <Form.Control type="Text" row="3" placeholder="Body" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+      </Container>
     </div>
   );
 }
+
+export default Blog;

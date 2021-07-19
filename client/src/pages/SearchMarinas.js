@@ -5,11 +5,12 @@ import MarinasComponents from './MarinasComponents'
 // import '.client/utils/api.js'
 
 const SearchMarinas = () => {
-    
+
     const [marinas, setMarinas] = useState([]);
     const [search, setSearch] = useState('');
-    console.log(marinas);
-    console.log(marinas.data);
+    console.log("Marina", marinas);
+    console.log("marina data", marinas.data);
+
 
     useEffect(() => {
         axios.get(`https://api.marinas.com//v1/points/search`)
@@ -19,24 +20,22 @@ const SearchMarinas = () => {
     }, [search])
 
     const handleChange = async e => {
+        e.preventDefault();
         setSearch(e.target.value);
     }
 
     const handleSubmit = async e => {
         e.preventDefault();
+        // setSearch(e.target.value)
     }
 
     const handleKeypress = e => {
+        e.preventDefault();
         //it triggers by pressing the enter key
         if (e.keyCode === 13) {
             handleSubmit();
         }
     };
-
-
-
-
-
 
     return (
         <div>
@@ -63,18 +62,22 @@ const SearchMarinas = () => {
                             </Col>
                         </Form.Row>
                     </Form>
-                    {/* {marinas.map(marina => {
-                        return <MarinasComponents
-                          key={marinas.id} 
-                            name={marinas.name}
-                        />
-                    })} */}
-                    <div className="marina-card">
-                        <MarinasComponents
-                        // key={marinas[0].id}
-                        // name={marinas[0].name}
-                        />
-                   </div>
+                    <div>
+                        {marinas.length}
+                        {/* {this.marinas.map((mar) => {
+                            return (
+                                <div className="marina-card">
+                                    <div className="marina-container">
+                                        <div className="marina-row">
+                                            <div className="marina">
+                                                <h2>{mar.name}</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })} */}
+                    </div>
                 </Container>
             </Jumbotron>
         </div>
