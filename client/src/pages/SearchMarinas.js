@@ -6,12 +6,13 @@ import MarinasComponents from './MarinasComponents'
 
 const SearchMarinas = () => {
     
-    const [data, setMarinas] = useState([])
-    const [search, setSearch] = useState('')
-    console.log(data)
+    const [marinas, setMarinas] = useState([]);
+    const [search, setSearch] = useState('');
+    console.log(marinas);
+    console.log(marinas.data);
 
     useEffect(() => {
-        axios.get(`https://api.marinas.com//v1/points/search?`)
+        axios.get(`https://api.marinas.com//v1/points/search`)
             .then(res => {
                 setMarinas(res.data);
             }).catch(err => console.log(err, 'error in setMarinas useEffect'))
@@ -62,13 +63,18 @@ const SearchMarinas = () => {
                             </Col>
                         </Form.Row>
                     </Form>
+                    {/* {marinas.map(marina => {
+                        return <MarinasComponents
+                          key={marinas.id} 
+                            name={marinas.name}
+                        />
+                    })} */}
                     <div className="marina-card">
                         <MarinasComponents
-                            key={data.id} 
-                            name={data.name}
-
-                            />
-                    </div>
+                        // key={marinas[0].id}
+                        // name={marinas[0].name}
+                        />
+                   </div>
                 </Container>
             </Jumbotron>
         </div>
