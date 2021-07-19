@@ -43,9 +43,9 @@ function App() {
           <NavTabs />
           <Switch>
             <Route exact path='/' component={SearchMarinas} />
-            <Route exact path='./pages/Blog/Blog' component={Blog} />
-            <Route exact path='./pages/Donation/Donation' component={Donation} />
-            <Route exact path='./pages/Contact/Contact' component={Contact} />
+            <Route exact path='./Blog/Blog' component={Blog} />
+            <Route exact path='./Donation/Donation' component={Donation} />
+            <Route exact path='./Contact/Contact' component={Contact} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
         </>

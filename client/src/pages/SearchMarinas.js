@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import axios from 'axios';
+import MarinasComponents from './MarinasComponents'
 // import '.client/utils/api.js'
 
 const SearchMarinas = () => {
     
-    const [marinas, setMarinas] = useState([])
+    const [data, setMarinas] = useState([])
     const [search, setSearch] = useState('')
-    console.log(marinas)
+    console.log(data)
 
     useEffect(() => {
-        axios.get('https://api.marinas.com//v1/points/search?')
+        axios.get(`https://api.marinas.com//v1/points/search?`)
             .then(res => {
                 setMarinas(res.data);
             }).catch(err => console.log(err, 'error in setMarinas useEffect'))
@@ -61,6 +62,13 @@ const SearchMarinas = () => {
                             </Col>
                         </Form.Row>
                     </Form>
+                    <div className="marina-card">
+                        <MarinasComponents
+                            key={data.id} 
+                            name={data.name}
+
+                            />
+                    </div>
                 </Container>
             </Jumbotron>
         </div>
