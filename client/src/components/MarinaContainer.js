@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import NavTabs from './NavTabs';
-import Home from '.components/pages/Home';
-import Donation from '.components/pages/Donation';
-import Blog from '.components/pages/Blog';
-import Contact from '.components/pages/Contact';
+import Home from './Home/Home';
+import Donation from './Donation/Donation';
+import Blog from './Blog/Blog';
+import Contact from './Contact/Contact';
 
 
 export default function MarinaContainer() {
