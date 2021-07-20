@@ -19,18 +19,7 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
     },
-    movies: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Movie',
-        },
-    ],
-    drinks: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Drink',
-        },
-    ],
+    
 });
 
 userSchema.pre('save', async function (next) {
